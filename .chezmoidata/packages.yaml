@@ -1,0 +1,9 @@
+packages:
+  darwin:
+    brews:
+      - "fzf-tab"
+      - "zsh-fast-syntax-highlighting"
+      - "zsh-autosuggestions"
+    casks:
+      - "font-jetbrains-mono-nerd-font"
+      
