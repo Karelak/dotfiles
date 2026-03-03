@@ -4,6 +4,13 @@ packages:
       - "fzf-tab"
       - "zsh-fast-syntax-highlighting"
       - "zsh-autosuggestions"
+      - "uv"
+      - "oh-my-posh"
+      - "thefuck"
+      - "eza"
+      - "zoxide"
+      - "tree"
     casks:
       - "font-jetbrains-mono-nerd-font"
-      
+      - "bitwarden"
+      - "visual-studio-code"
