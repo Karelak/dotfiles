@@ -15,3 +15,7 @@ merge:
 git:
   autoCommit: true
   autoPush: true
+bitwarden:
+  unlock: true
+scriptenv:
+  BW_SESSION: BW_SESSION=$(bw unlock --raw)
