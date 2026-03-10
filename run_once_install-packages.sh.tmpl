@@ -10,3 +10,8 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ end -}}
+{{ if eq .chezmoi.os "windows" -}}
+{{ range .packages.windows.winget -}}
+winget install --id {{ . | quote }} --source winget
+{{ end -}}
+{{ end -}}

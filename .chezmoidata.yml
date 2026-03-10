@@ -10,7 +10,16 @@ packages:
       - "eza"
       - "zoxide"
       - "tree"
+      - "nanorc"
+      - "gh"
     casks:
       - "font-jetbrains-mono-nerd-font"
       - "bitwarden"
       - "visual-studio-code"
+  windows:
+    winget:
+      - "Microsoft.VisualStudioCode"
+      - "Bitwarden.Bitwarden"
+      - "astral-sh.uv"
+      - "oh-my-posh.oh-my-posh"
+      - "GitHub.cli"
