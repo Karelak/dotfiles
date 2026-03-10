@@ -3,5 +3,5 @@ Library/*
 {{ end }}
 {{ if ne .chezmoi.os "windows" }}
 Appdata/*
-Documents/Powershell/*
+Documents/*
 {{ end }}
