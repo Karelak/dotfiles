@@ -30,11 +30,13 @@ packages:
       - "eza"
       - "gh"
       - "nano"
+      - "tmux"
     brews:
       - "uv"
       - "oh-my-posh"
       - "thefuck"
       - "nanorc"
+      - "blesh"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"

@@ -121,14 +121,29 @@ if [[ "$TERM_PROGRAM" == "vscode" ]] && command -v code >/dev/null 2>&1; then
   . "$(code --locate-shell-integration-path bash)"
 fi
 if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init bash)"
+  eval "$(zoxide init --cmd cd bash)"
 fi
 if command -v thefuck >/dev/null 2>&1; then
   eval "$(thefuck --alias)"
+fi
+if command -v fzf >/dev/null 2>&1; then
+  eval "$(fzf --bash)"
+fi
+if command -v uv >/dev/null 2>&1; then
+  eval "$(uv generate-shell-completion bash)"
+  eval "$(uvx --generate-shell-completion bash)"
+fi
+
+# ble.sh — syntax highlighting and autosuggestions (must load before oh-my-posh)
+if [[ -f $(brew --prefix 2>/dev/null)/share/blesh/ble.sh ]]; then
+  source "$(brew --prefix)/share/blesh/ble.sh" --noattach
 fi
 
 # Oh My Posh
 if command -v oh-my-posh >/dev/null 2>&1; then
   eval "$(oh-my-posh init bash --config "$HOME/.config/oh-my-posh/zen.toml")"
 fi
+
+# Attach ble.sh after prompt is set up
+[[ ${BLE_VERSION-} ]] && ble-attach
 {{ end -}}
