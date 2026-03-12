@@ -98,4 +98,9 @@ fi
 [[ ${BLE_VERSION-} ]] && ble-attach
 {{ end -}}
 
+
+# if ssh-agent doesnt report keys, unlock rbw with rbw unlock
+if [[ -S "$XDG_RUNTIME_DIR/rbw/ssh-agent-socket" ]]; then
+  rbw unlock
+fi
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
