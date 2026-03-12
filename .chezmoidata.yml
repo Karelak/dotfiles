@@ -36,7 +36,6 @@ packages:
       - "oh-my-posh"
       - "thefuck"
       - "nanorc"
-      - "blesh"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"

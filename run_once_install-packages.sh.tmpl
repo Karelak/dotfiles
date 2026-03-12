@@ -40,5 +40,13 @@ EOF
       brew install bitwarden-cli || true
     fi
   fi
+
+  # Install ble.sh from source (not in brew)
+  if [[ ! -d ~/.local/share/blesh ]]; then
+    tmpdir=$(mktemp -d)
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git "$tmpdir/ble.sh"
+    make -C "$tmpdir/ble.sh" install PREFIX=~/.local
+    rm -rf "$tmpdir"
+  fi
 fi
 {{ end -}}
