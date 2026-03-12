@@ -97,3 +97,5 @@ fi
 # Attach ble.sh after prompt is set up
 [[ ${BLE_VERSION-} ]] && ble-attach
 {{ end -}}
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
