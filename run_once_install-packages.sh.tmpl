@@ -1,7 +1,9 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+set -eu
 
-brew bundle --file=/dev/stdin <<EOF
+if [[ "{{ .chezmoi.os }}" == "darwin" ]]; then
+  brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -9,4 +11,34 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+  exit 0
+fi
+
+if [[ "{{ .chezmoi.os }}" == "linux" ]]; then
+  sudo apt-get update
+  sudo apt-get install -y {{ join " " .packages.linux.apt }}
+
+  if ! command -v brew >/dev/null 2>&1; then
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+    eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+  fi
+
+  if command -v brew >/dev/null 2>&1; then
+    brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.linux.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+EOF
+
+    # Headless Linux hosts use bw CLI with system ssh-agent.
+    if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
+      brew install bitwarden-cli || true
+    fi
+  fi
+fi
 {{ end -}}

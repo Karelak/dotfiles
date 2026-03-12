@@ -16,6 +16,23 @@ packages:
       - "font-jetbrains-mono-nerd-font"
       - "bitwarden"
       - "visual-studio-code"
+  linux:
+    apt:
+      - "curl"
+      - "file"
+      - "git"
+      - "build-essential"
+      - "unzip"
+      - "ripgrep"
+      - "fd-find"
+      - "fzf"
+      - "zoxide"
+      - "eza"
+      - "gh"
+    brews:
+      - "uv"
+      - "oh-my-posh"
+      - "thefuck"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
@@ -23,3 +40,13 @@ packages:
       - "astral-sh.uv"
       - "oh-my-posh.oh-my-posh"
       - "GitHub.cli"
+
+github:
+  username: "Karelak"
+
+git:
+  signingPrincipal: "partkaarel@gmail.com"
+
+bitwarden:
+  # Headless Linux: list secure note item IDs that contain private SSH keys.
+  sshKeyItemIds: []

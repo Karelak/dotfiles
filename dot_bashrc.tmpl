@@ -1,0 +1,103 @@
+{{ if eq .chezmoi.os "linux" -}}
+# Linuxbrew environment
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+  eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+fi
+
+# PATH
+export PATH="$HOME/.local/bin:$PATH"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Editor
+export EDITOR="code"
+
+# Headless Linux: use system ssh-agent and load keys from Bitwarden CLI.
+if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
+  bw_ssh_load_keys() {
+    if ! command -v bw >/dev/null 2>&1 || ! command -v ssh-add >/dev/null 2>&1; then
+      return 0
+    fi
+
+    if ssh-add -l >/dev/null 2>&1; then
+      return 0
+    fi
+
+    local status
+    status="$(bw status 2>/dev/null || true)"
+    if [[ "$status" != *'"status":"unlocked"'* ]]; then
+      return 0
+    fi
+
+    local key_item_ids=(
+{{- range .bitwarden.sshKeyItemIds }}
+      "{{ . }}"
+{{- end }}
+    )
+
+    local item_id private_key
+    for item_id in "${key_item_ids[@]}"; do
+      [[ -n "$item_id" ]] || continue
+      private_key="$(bw get notes "$item_id" 2>/dev/null || true)"
+      [[ -n "$private_key" ]] || continue
+
+      case "$private_key" in
+        *"BEGIN OPENSSH PRIVATE KEY"*|*"BEGIN RSA PRIVATE KEY"*|*"BEGIN EC PRIVATE KEY"*|*"BEGIN PRIVATE KEY"*)
+          ssh-add - <<<"$private_key" >/dev/null 2>&1 || true
+          ;;
+      esac
+    done
+  }
+
+  export SSH_AGENT_ENV="$HOME/.ssh/agent.env"
+  if [[ -r "$SSH_AGENT_ENV" ]]; then
+    # shellcheck disable=SC1090
+    . "$SSH_AGENT_ENV"
+  fi
+
+  if ! ssh-add -l >/dev/null 2>&1; then
+    eval "$(ssh-agent -s)" >/dev/null
+    mkdir -p "$HOME/.ssh"
+    {
+      printf 'export SSH_AUTH_SOCK=%q\n' "$SSH_AUTH_SOCK"
+      printf 'export SSH_AGENT_PID=%q\n' "$SSH_AGENT_PID"
+    } >"$SSH_AGENT_ENV"
+    chmod 600 "$SSH_AGENT_ENV"
+  fi
+
+  bw_ssh_load_keys || true
+
+  if command -v bw >/dev/null 2>&1; then
+    bw-unlock-ssh() {
+      export BW_SESSION="$(bw unlock --raw)"
+      bw_ssh_load_keys || true
+    }
+  fi
+fi
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.bash_history
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+
+# Aliases
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --icons=always --hyperlink'
+fi
+alias c='clear'
+alias grep='rg --color=always'
+
+# Integrations
+if [[ "$TERM_PROGRAM" == "vscode" ]] && command -v code >/dev/null 2>&1; then
+  . "$(code --locate-shell-integration-path bash)"
+fi
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
+if command -v thefuck >/dev/null 2>&1; then
+  eval "$(thefuck --alias)"
+fi
+{{ end -}}

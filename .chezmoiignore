@@ -1,7 +1,13 @@
 {{ if ne .chezmoi.os "darwin" }}
 Library/*
+.zshenv
+.zprofile
+.zshrc
 {{ end }}
 {{ if ne .chezmoi.os "windows" }}
-Appdata/*
+AppData/*
 Documents/*
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.bashrc
 {{ end }}

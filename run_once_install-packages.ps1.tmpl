@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "windows" -}}
+$ErrorActionPreference = "Stop"
+
+{{ range .packages.windows.winget -}}
+$packageId = "{{ . }}"
+if (-not (winget list --id $packageId --exact --accept-source-agreements | Select-String -SimpleMatch $packageId)) {
+  winget install --id $packageId --exact --accept-package-agreements --accept-source-agreements
+}
+{{ end -}}
+{{ end -}}
