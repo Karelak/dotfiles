@@ -23,6 +23,7 @@ packages:
       - "git"
       - "build-essential"
       - "unzip"
+      - "jq"
       - "ripgrep"
       - "fd-find"
       - "fzf"
@@ -52,5 +53,6 @@ git:
   signingKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEv84vLMugR8I4h8DqM/Ju/8U7wmZs2T9kV/z8HZwpeb"
 
 bitwarden:
-  # Headless Linux: list secure note item IDs that contain private SSH keys.
-  sshKeyItemIds: []
+  # Headless Linux: list Bitwarden item IDs that contain SSH private keys.
+  sshKeyItemIds:
+    - "221a256a-436f-469b-a8f1-05a85be416ac"
