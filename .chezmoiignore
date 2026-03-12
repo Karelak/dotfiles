@@ -8,7 +8,7 @@ Library/*
 AppData/*
 Documents/*
 {{ end }}
-{{ if eq .chezmoi.os "linux" }}
+{{ if ne .chezmoi.os "linux" }}
 .bashrc
 .config/nano/nanorc
 {{ end }}
