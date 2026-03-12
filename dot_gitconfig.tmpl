@@ -2,8 +2,12 @@
 	format = ssh
 [user]
 	name = Kaarel Part
-	email = partkaarel@gmail.com
+	email = {{ .git.signingPrincipal }}
+{{ if eq .chezmoi.os "windows" }}
 	signingkey = ~/.ssh/github.pub
+{{ else }}
+	signingkey = {{ .git.signingKey }}
+{{ end }}
 [commit]
 	gpgsign = true
 [gpg "ssh"]
