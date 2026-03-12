@@ -34,11 +34,6 @@ if [[ "{{ .chezmoi.os }}" == "linux" ]]; then
 brew {{ . | quote }}
 {{ end -}}
 EOF
-
-    # Headless Linux hosts use bw CLI with system ssh-agent.
-    if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
-      brew install bitwarden-cli || true
-    fi
   fi
 
   # Install ble.sh from source (not in brew)
