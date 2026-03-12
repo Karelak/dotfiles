@@ -1,8 +1,12 @@
 {{ if eq .chezmoi.os "linux" }}
 #!/usr/bin/env bash
 set -euo pipefail
-# set bw cli to use correct server
-bw config server "https://vw.kaarel.page"
+# if not logged in to Bitwarden CLI, do it first
+if ! bw session 2>/dev/null; then
+  bw config server "https://vw.kaarel.page"
+  bw login --raw
+fi
+
 # Add GitHub SSH private key from Bitwarden vault to the SSH agent.
 {{ $key := (bitwarden "item" "Karelak Github Account").sshKey.privateKey -}}
 echo "{{ $key }}" | ssh-add -
