@@ -37,6 +37,8 @@ packages:
       - "oh-my-posh"
       - "thefuck"
       - "nanorc"
+    cargo:
+      - "rbw"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
