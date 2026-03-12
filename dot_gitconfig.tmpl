@@ -6,7 +6,7 @@
 {{ if eq .chezmoi.os "windows" }}
 	signingkey = ~/.ssh/github.pub
 {{ else }}
-	signingkey = {{ .git.signingKey }}
+	signingkey = {{ .git.key }}
 {{ end }}
 [commit]
 	gpgsign = true
