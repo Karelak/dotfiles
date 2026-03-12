@@ -46,6 +46,7 @@ github:
 
 git:
   signingPrincipal: "partkaarel@gmail.com"
+  signingKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEv84vLMugR8I4h8DqM/Ju/8U7wmZs2T9kV/z8HZwpeb"
 
 bitwarden:
   # Headless Linux: list secure note item IDs that contain private SSH keys.

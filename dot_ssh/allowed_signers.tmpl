@@ -1,4 +1,1 @@
-{{- $principal := .git.signingPrincipal -}}
-{{- range gitHubKeys .github.username }}
-{{ $principal }} {{ .Key }}
-{{- end }}
+{{ .git.signingPrincipal }} {{ .git.signingKey }}
