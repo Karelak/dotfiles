@@ -1,0 +1,25 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+# General settings
+set autoindent
+set linenumbers
+set mouse
+set nohelp
+set tabsize 2
+set tabstospaces
+set trimblanks
+set zap
+
+# Colour
+set titlecolor bold,white,blue
+set statuscolor bold,white,green
+set errorcolor bold,white,red
+set selectedcolor white,magenta
+set numbercolor cyan
+
+# Syntax highlighting — include all .nanorc files from the brew nanorc package
+{{ if eq .chezmoi.os "darwin" -}}
+include "/opt/homebrew/Cellar/nanorc/*/share/nanorc/*.nanorc"
+{{ else if eq .chezmoi.os "linux" -}}
+include "/home/linuxbrew/.linuxbrew/Cellar/nanorc/*/share/nanorc/*.nanorc"
+{{ end -}}
+{{ end -}}

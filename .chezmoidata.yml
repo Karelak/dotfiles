@@ -29,10 +29,12 @@ packages:
       - "zoxide"
       - "eza"
       - "gh"
+      - "nano"
     brews:
       - "uv"
       - "oh-my-posh"
       - "thefuck"
+      - "nanorc"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"

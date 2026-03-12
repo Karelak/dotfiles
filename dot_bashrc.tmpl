@@ -35,6 +35,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Editor
 export EDITOR="code"
 
+# Headless Linux: prefer nano when no display server present
+if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
+  export EDITOR="nano"
+fi
+
 # Headless Linux: use system ssh-agent and load keys from Bitwarden CLI.
 if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
   bw_ssh_load_keys() {

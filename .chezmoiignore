@@ -10,4 +10,5 @@ Documents/*
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
+.config/nano/nanorc
 {{ end }}
