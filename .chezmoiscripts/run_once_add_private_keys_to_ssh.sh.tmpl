@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" }}
+#!/usr/bin/env bash
+set -euo pipefail
+# Add GitHub SSH private key from Bitwarden vault to the SSH agent.
+{{ $key := (bitwarden "item" "Karelak Github Account").sshKey.privateKey -}}
+echo "{{ $key }}" | ssh-add -
+{{ end -}}
