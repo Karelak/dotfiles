@@ -12,6 +12,9 @@ packages:
       - "tree"
       - "nanorc"
       - "gh"
+      - "rbw"
+      - "tmux"
+      - "bat"
     casks:
       - "font-jetbrains-mono-nerd-font"
       - "bitwarden"
