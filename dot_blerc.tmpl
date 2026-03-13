@@ -1,0 +1,55 @@
+# ble.sh fast profile (bash-only)
+# Managed by chezmoi
+
+# Performance first
+bleopt history_lazyload=1
+bleopt complete_auto_complete=
+bleopt complete_auto_history=
+bleopt complete_ambiguous=
+bleopt complete_menu_filter=
+
+bleopt complete_limit=120
+bleopt complete_limit_auto=60
+bleopt complete_limit_auto_menu=30
+bleopt complete_timeout_auto=800
+bleopt complete_timeout_compvar=80
+bleopt complete_polling_cycle=40
+
+bleopt highlight_syntax=1
+bleopt highlight_filename=1
+bleopt highlight_variable=
+bleopt highlight_timeout_sync=60
+bleopt highlight_timeout_async=500
+bleopt highlight_eval_word_limit=50
+bleopt syntax_eval_polling_interval=20
+
+bleopt exec_restore_pipestatus=
+bleopt prompt_eol_mark=''
+bleopt exec_errexit_mark=
+bleopt exec_elapsed_mark=
+bleopt exec_exit_mark=
+bleopt edit_marker=
+bleopt edit_marker_error=
+bleopt edit_bell=vbell
+
+# FSH-like color intent
+ble-face -s syntax_command fg=green
+ble-face -s command_builtin fg=green
+ble-face -s command_function fg=green
+ble-face -s command_alias fg=green
+ble-face -s command_file fg=green
+ble-face -s command_keyword fg=yellow
+
+ble-face -s argument_option fg=cyan
+
+ble-face -s syntax_quoted fg=yellow
+ble-face -s syntax_quotation fg=yellow
+
+ble-face -s filename_directory fg=magenta,underline
+ble-face -s filename_executable fg=magenta
+ble-face -s filename_link fg=magenta,underline
+
+ble-face -s syntax_comment fg=242
+ble-face -s syntax_error fg=231,bg=red
+ble-face -s argument_error fg=231,bg=red
+ble-face -s syntax_varname fg=113

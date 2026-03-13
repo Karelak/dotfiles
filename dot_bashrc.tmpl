@@ -57,9 +57,6 @@ alias grep='rg --color=always'
 if [[ "$TERM_PROGRAM" == "vscode" ]] && command -v code >/dev/null 2>&1; then
   . "$(code --locate-shell-integration-path bash)"
 fi
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init --cmd cd bash)"
-fi
 if command -v thefuck >/dev/null 2>&1; then
   eval "$(thefuck --alias)"
 fi
@@ -74,7 +71,8 @@ if [[ -f ~/.local/share/blesh/ble.sh ]]; then
 
   # fzf integration via ble.sh (replaces plain fzf --bash)
   if command -v fzf >/dev/null 2>&1; then
-    _ble_contrib_fzf_base="$(command -v fzf | xargs dirname | xargs dirname)"
+    _ble_fzf_path="$(command -v fzf)"
+    _ble_contrib_fzf_base="${_ble_fzf_path%/*/*}"
     ble-import -d contrib/integration/fzf-completion
     ble-import -d contrib/integration/fzf-key-bindings
   fi
@@ -104,3 +102,8 @@ if [[ -S "$XDG_RUNTIME_DIR/rbw/ssh-agent-socket" ]]; then
   rbw unlock
 fi
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
+
+# zoxide recommends initialization at the end of shell config
+if [[ $- == *i* ]] && command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init --cmd cd bash)"
+fi
