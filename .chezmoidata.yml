@@ -17,6 +17,7 @@ packages:
         - "tmux"
         - "bat"
         - "bun"
+        - "fastfetch"
       casks:
         - "font-jetbrains-mono-nerd-font"
         - "bitwarden"
@@ -60,6 +61,7 @@ packages:
         - "thefuck"
         - "nanorc"
         - "rbw"
+        - "fastfetch"
       taps:
         - "jandedobbeleer/oh-my-posh"
   windows:
