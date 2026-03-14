@@ -3,11 +3,11 @@
 [user]
 	name = Kaarel Part
 	email = {{ .git.signingPrincipal }}
-{{- if eq .chezmoi.os "windows" -}}
+{{ if eq .chezmoi.os "windows" }}
 	signingkey = ~/.ssh/github.pub
-{{ else -}}
+{{ else }}
 	signingkey = {{ .git.key }}
-{{- end -}}
+{{ end }}
 [commit]
 	gpgsign = true
 [gpg "ssh"]
