@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "windows" -}}
 $ErrorActionPreference = "Stop"
+# package list hash: {{ .packages.windows }}
 
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
