@@ -7,6 +7,7 @@
 {{ if ne .chezmoi.os "windows" }}
 /AppData/**
 /Documents/**
+.ssh/github.pub
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
