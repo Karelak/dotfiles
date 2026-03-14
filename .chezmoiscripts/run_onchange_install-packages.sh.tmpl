@@ -8,11 +8,14 @@ set -eu
 {{ end -}}
 if [[ "{{ .chezmoi.os }}" == "darwin" ]]; then
   brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
+{{ range .packages.darwin.homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.darwin.casks -}}
+{{ range .packages.darwin.homebrew.casks -}}
 cask {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.homebrew.taps -}}
+tap {{ . | quote }}
 {{ end -}}
 EOF
   exit 0
@@ -34,8 +37,11 @@ if [[ "{{ .chezmoi.os }}" == "linux" ]]; then
 
   if command -v brew >/dev/null 2>&1; then
     brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.linux.brews -}}
+{{ range .packages.linux.homebrew.brews -}}
 brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.linux.homebrew.taps -}}
+tap {{ . | quote }}
 {{ end -}}
 EOF
   fi
