@@ -64,7 +64,9 @@ if command -v uv >/dev/null 2>&1; then
   eval "$(uv generate-shell-completion bash)"
   eval "$(uvx --generate-shell-completion bash)"
 fi
-
+if command -v chezmoi >/dev/null 2>&1; then
+  eval "$(chezmoi completion bash)"
+fi
 # ble.sh — syntax highlighting and autosuggestions (must be sourced first)
 if [[ -f ~/.local/share/blesh/ble.sh ]]; then
   source ~/.local/share/blesh/ble.sh --noattach
