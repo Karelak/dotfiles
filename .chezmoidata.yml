@@ -48,7 +48,13 @@ packages:
       - "astral-sh.uv"
       - "oh-my-posh.oh-my-posh"
       - "GitHub.cli"
-
+    scoop:
+      - "btop"
+      - "scoop-search"
+      - "scoop-completion"
+      - "less"
+    chocolatey:
+      - "yt-dlp"
 github:
   username: "Karelak"
 

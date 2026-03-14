@@ -1,10 +1,31 @@
 {{ if eq .chezmoi.os "windows" -}}
 $ErrorActionPreference = "Stop"
 
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+  iwr -useb get.scoop.sh | iex
+}
+
+if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+}
+
 {{ range .packages.windows.winget -}}
 $packageId = "{{ . }}"
 if (-not (winget list --id $packageId --exact --accept-source-agreements | Select-String -SimpleMatch $packageId)) {
   winget install --id $packageId --exact --accept-package-agreements --accept-source-agreements
+}
+{{ end -}}
+{{ range .packages.windows.scoop -}}
+$packageName = "{{ . }}"
+if (-not (scoop list $packageName | Select-String -SimpleMatch $packageName)) {
+  scoop install $packageName
+}
+{{ end -}}
+{{ range .packages.windows.chocolatey -}}
+$packageName = "{{ . }}"
+if (-not (choco list --local-only $packageName | Select-String -SimpleMatch $packageName)) {
+  choco install $packageName -y
 }
 {{ end -}}
 {{ end -}}
