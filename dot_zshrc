@@ -34,7 +34,6 @@ setopt hist_find_no_dups
 # Aliases
 alias ls="eza --icons=always --hyperlink"
 alias c="clear"
-alias update="brew update; brew upgrade; sudo mas upgrade; sudo mac-cleanup -f"
 alias grep="rg --color=always"
 
 # shell integrations
