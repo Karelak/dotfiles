@@ -49,7 +49,6 @@ packages:
       - "oh-my-posh.oh-my-posh"
       - "GitHub.cli"
     scoop:
-      - "btop"
       - "scoop-search"
       - "scoop-completion"
       - "less"
