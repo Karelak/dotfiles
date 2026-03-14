@@ -47,4 +47,4 @@ complete -o nospace -C /opt/homebrew/bin/mc mc
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 eval "$(rbw gen-completions zsh)"
-
+eval "$(chezmoi completion zsh)"
