@@ -61,7 +61,7 @@ packages:
         - "nanorc"
         - "rbw"
       taps:
-        - "domt4/autoupdate"
+        - "jandedobbeleer/oh-my-posh"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
