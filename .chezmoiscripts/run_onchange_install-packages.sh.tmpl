@@ -35,8 +35,8 @@ if [[ "{{ .chezmoi.os }}" == "linux" ]]; then
     eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
   fi
 
-  if command -v brew >/dev/null 2>&1; then
-    brew bundle --file=/dev/stdin <<EOF
+if command -v brew >/dev/null 2>&1; then
+  brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.linux.homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
