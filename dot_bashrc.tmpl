@@ -4,7 +4,6 @@ case $- in
     *i*) ;;
       *) return;;
 esac
-
 # Window size check after each command
 shopt -s checkwinsize
 
@@ -47,6 +46,9 @@ HISTSIZE=5000
 HISTFILE=~/.bash_history
 HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
+
+# Homebrew
+HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
 if command -v eza >/dev/null 2>&1; then
