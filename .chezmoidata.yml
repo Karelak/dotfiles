@@ -6,7 +6,7 @@ packages:
         - "zsh-fast-syntax-highlighting"
         - "zsh-autosuggestions"
         - "uv"
-        - "oh-my-posh"
+        - "homebrew/core/oh-my-posh"
         - "thefuck"
         - "eza"
         - "zoxide"
@@ -27,7 +27,6 @@ packages:
         - "blacktop/tap"
         - "domt4/autoupdate"
         - "fwartner/tap"
-        - "jandedobbeleer/oh-my-posh"
         - "jesseduffield/lazydocker"
         - "kegworks-app/kegworks"
         - "localsend/localsend"
@@ -57,13 +56,12 @@ packages:
     homebrew:
       brews:
         - "uv"
-        - "oh-my-posh"
+        - "homebrew/core/oh-my-posh"
         - "thefuck"
         - "nanorc"
         - "rbw"
         - "fastfetch"
       taps:
-        - "jandedobbeleer/oh-my-posh"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
