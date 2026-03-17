@@ -6,7 +6,7 @@ packages:
         - "zsh-fast-syntax-highlighting"
         - "zsh-autosuggestions"
         - "uv"
-        - "homebrew/core/oh-my-posh"
+        - "oh-my-posh"
         - "thefuck"
         - "eza"
         - "zoxide"
@@ -56,7 +56,7 @@ packages:
     homebrew:
       brews:
         - "uv"
-        - "homebrew/core/oh-my-posh"
+        - "oh-my-posh"
         - "thefuck"
         - "nanorc"
         - "rbw"
