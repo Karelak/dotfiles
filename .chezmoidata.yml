@@ -34,7 +34,6 @@ packages:
         - "surge-downloader/tap"
         - "teamookla/speedtest"
         - "vanyauhalin/osub"
-
   linux:
     apt:
       - "curl"
@@ -67,6 +66,7 @@ packages:
       - "astral-sh.uv"
       - "oh-my-posh.oh-my-posh"
       - "GitHub.cli"
+      - "sharkdp.bat"
     scoop:
       - "scoop-search"
       - "scoop-completion"
