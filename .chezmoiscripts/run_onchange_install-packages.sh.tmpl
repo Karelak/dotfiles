@@ -1,7 +1,7 @@
 {{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
 #!/usr/bin/env bash
 set -eu
-{{ if eq .chezmoi.os "macos"}}
+{{ if eq .chezmoi.os "darwin"}}
 # package list hash: {{ .packages.darwin }}
 {{ else if eq .chezmoi.os "linux" -}}
 # package list hash: {{ .packages.linux }}
@@ -36,14 +36,19 @@ if [[ "{{ .chezmoi.os }}" == "linux" ]]; then
   fi
 
 if command -v brew >/dev/null 2>&1; then
-  brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.linux.homebrew.brews -}}
-brew {{ . | quote }}
-{{ end -}}
 {{ range .packages.linux.homebrew.taps -}}
-tap {{ . | quote }}
+  brew tap {{ . | quote }}
 {{ end -}}
-EOF
+
+{{ range .packages.linux.homebrew.brews -}}
+  if brew info --formula {{ . | quote }} >/dev/null 2>&1; then
+    brew install {{ . | quote }}
+  elif brew info --cask {{ . | quote }} >/dev/null 2>&1; then
+    echo "Skipping {{ . }}: resolves to a cask on Linux"
+  else
+    echo "Skipping {{ . }}: no matching Homebrew formula"
+  fi
+{{ end -}}
   fi
 
   # Install ble.sh from source (not in brew)

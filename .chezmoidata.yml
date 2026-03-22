@@ -37,6 +37,7 @@ packages:
   linux:
     apt:
       - "curl"
+      - "wget"
       - "file"
       - "git"
       - "build-essential"
@@ -60,6 +61,17 @@ packages:
         - "fastfetch"
         - "bat"
       taps:
+        - "alienator88/cask"
+        - "blacktop/tap"
+        - "fwartner/tap"
+        - "jesseduffield/lazydocker"
+        - "kegworks-app/kegworks"
+        - "localsend/localsend"
+        - "mac-cleanup/mac-cleanup-py"
+        - "minio/stable"
+        - "surge-downloader/tap"
+        - "teamookla/speedtest"
+        - "vanyauhalin/osub"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
