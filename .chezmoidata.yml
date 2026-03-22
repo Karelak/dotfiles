@@ -16,7 +16,6 @@ packages:
         - "rbw"
         - "tmux"
         - "bat"
-        - "bun"
         - "fastfetch"
       casks:
         - "font-jetbrains-mono-nerd-font"
@@ -32,7 +31,6 @@ packages:
         - "localsend/localsend"
         - "mac-cleanup/mac-cleanup-py"
         - "minio/stable"
-        - "oven-sh/bun"
         - "surge-downloader/tap"
         - "teamookla/speedtest"
         - "vanyauhalin/osub"
