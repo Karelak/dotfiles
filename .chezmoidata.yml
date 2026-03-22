@@ -67,6 +67,7 @@ packages:
       - "oh-my-posh.oh-my-posh"
       - "GitHub.cli"
       - "sharkdp.bat"
+      - "gerardog.gsudo"
     scoop:
       - "scoop-search"
       - "scoop-completion"
