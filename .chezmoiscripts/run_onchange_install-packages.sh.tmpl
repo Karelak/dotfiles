@@ -35,20 +35,18 @@ if [[ "{{ .chezmoi.os }}" == "linux" ]]; then
     eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
   fi
 
-if command -v brew >/dev/null 2>&1; then
-{{ range .packages.linux.homebrew.taps -}}
-  brew tap {{ . | quote }}
-{{ end -}}
-
+  if command -v brew >/dev/null 2>&1; then
+    brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.linux.homebrew.brews -}}
-  if brew info --formula {{ . | quote }} >/dev/null 2>&1; then
-    brew install {{ . | quote }}
-  elif brew info --cask {{ . | quote }} >/dev/null 2>&1; then
-    echo "Skipping {{ . }}: resolves to a cask on Linux"
-  else
-    echo "Skipping {{ . }}: no matching Homebrew formula"
-  fi
+brew {{ . | quote }}
 {{ end -}}
+{{ range .packages.linux.homebrew.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .packages.linux.homebrew.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
   fi
 
   # Install ble.sh from source (not in brew)

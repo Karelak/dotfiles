@@ -54,24 +54,22 @@ packages:
     homebrew:
       brews:
         - "uv"
-        - "oh-my-posh"
         - "thefuck"
         - "nanorc"
         - "rbw"
         - "fastfetch"
         - "bat"
+        - "oh-my-posh"
       taps:
         - "alienator88/cask"
         - "blacktop/tap"
         - "fwartner/tap"
         - "jesseduffield/lazydocker"
-        - "kegworks-app/kegworks"
-        - "localsend/localsend"
-        - "mac-cleanup/mac-cleanup-py"
         - "minio/stable"
         - "surge-downloader/tap"
         - "teamookla/speedtest"
         - "vanyauhalin/osub"
+      casks:
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
