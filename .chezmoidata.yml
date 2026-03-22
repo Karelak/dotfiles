@@ -68,12 +68,11 @@ packages:
       - "GitHub.cli"
       - "sharkdp.bat"
       - "gerardog.gsudo"
+      - "yt-dlp.yt-dlp"
     scoop:
       - "scoop-search"
       - "scoop-completion"
       - "less"
-    chocolatey:
-      - "yt-dlp"
 
 git:
   signingPrincipal: "partkaarel@gmail.com"
