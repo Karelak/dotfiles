@@ -58,6 +58,7 @@ packages:
         - "nanorc"
         - "rbw"
         - "fastfetch"
+        - "bat"
       taps:
   windows:
     winget:
