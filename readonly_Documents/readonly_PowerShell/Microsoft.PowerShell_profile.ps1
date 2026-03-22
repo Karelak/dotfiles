@@ -18,6 +18,7 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 Import-Module scoop-completion
+. ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 # Aliases
 Import-Module "C:\Program Files\WindowsPowerShell\Modules\gsudoModule"
 Set-Alias 'sudo' 'gsudo'
