@@ -85,6 +85,7 @@ packages:
       - "scoop-completion"
       - "less"
       - "dockercompletion"
+      - "psreadline"
     chocolatey:
 
 git:
