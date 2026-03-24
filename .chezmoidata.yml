@@ -84,6 +84,7 @@ packages:
       - "scoop-search"
       - "scoop-completion"
       - "less"
+      - "dockercompletion"
     chocolatey:
 
 git:
