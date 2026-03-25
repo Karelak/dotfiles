@@ -51,6 +51,7 @@ packages:
       - "gh"
       - "nano"
       - "tmux"
+      - "gawk"
     homebrew:
       brews:
         - "uv"
