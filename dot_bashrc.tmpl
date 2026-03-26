@@ -34,6 +34,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # Editor
 export EDITOR="code"
 
+# LANG
+export LANG="en_GB.UTF-8"
+
 # Headless Linux: prefer nano when no display server present
 if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
   export EDITOR="nano"
