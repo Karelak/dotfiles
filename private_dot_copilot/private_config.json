@@ -15,5 +15,8 @@
     "/Users/kaarel/Documents/Git Repos/pstream-trakt",
     "/Users/kaarel"
   ],
-  "color_mode": "default"
+  "color_mode": "default",
+  "asked_setup_terminals": [
+    "windows-terminal"
+  ]
 }
