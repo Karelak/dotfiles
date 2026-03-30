@@ -18,5 +18,8 @@
   "color_mode": "default",
   "asked_setup_terminals": [
     "windows-terminal"
+  ],
+  "allowed_urls": [
+    "https://hst.sh"
   ]
 }

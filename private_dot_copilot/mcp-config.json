@@ -1,11 +1,24 @@
 {
   "mcpServers": {
     "deepwiki": {
+      "tools": [
+        "*"
+      ],
       "type": "http",
       "url": "https://mcp.deepwiki.com/mcp",
       "headers": {},
+      "source": "user",
+      "sourcePath": "C:\\Users\\Kaarel\\.copilot\\mcp-config.json"
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": "npx",
       "tools": [
         "*"
+      ],
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
       ]
     }
   }

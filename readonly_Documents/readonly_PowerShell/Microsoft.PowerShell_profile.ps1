@@ -36,4 +36,3 @@ Set-PSReadLineOption -Colors @{ InlinePrediction = '#875f5f' }
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord "Ctrl+RightArrow" -Function ForwardWord
-Import-Module posh-git
