@@ -22,6 +22,7 @@ Import-Module scoop-completion
 . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 # Aliases
 Import-Module "C:\Program Files\WindowsPowerShell\Modules\gsudoModule"
+Import-Module posh-git
 Set-Alias 'sudo' 'gsudo'
 Set-Alias 'c' 'clear'
 # Prompt
