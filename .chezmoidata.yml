@@ -17,6 +17,7 @@ packages:
         - "tmux"
         - "bat"
         - "fastfetch"
+        - "watchman"
       casks:
         - "font-jetbrains-mono-nerd-font"
         - "bitwarden"
@@ -61,6 +62,7 @@ packages:
         - "fastfetch"
         - "bat"
         - "oh-my-posh"
+        - "watchman"
       taps:
         - "alienator88/cask"
         - "blacktop/tap"
@@ -87,6 +89,7 @@ packages:
       - "less"
       - "dockercompletion"
       - "psreadline"
+      - "watchman"
     chocolatey:
 
 git:
