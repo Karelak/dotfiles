@@ -83,13 +83,13 @@ packages:
       - "sharkdp.bat"
       - "gerardog.gsudo"
       - "yt-dlp.yt-dlp"
+      - "facebook.watchman"
     scoop:
       - "scoop-search"
       - "scoop-completion"
       - "less"
       - "dockercompletion"
       - "psreadline"
-      - "watchman"
     chocolatey:
 
 git:
