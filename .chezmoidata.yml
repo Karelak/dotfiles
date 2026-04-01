@@ -17,9 +17,8 @@ packages:
         - "tmux"
         - "bat"
         - "fastfetch"
-        - "font-caskaydia-cove-nerd-font"
       casks:
-        - "font-jetbrains-mono-nerd-font"
+        - "font-caskaydia-cove-nerd-font"
         - "bitwarden"
         - "visual-studio-code"
       taps:
@@ -62,7 +61,6 @@ packages:
         - "fastfetch"
         - "bat"
         - "oh-my-posh"
-        - "font-caskaydia-cove-nerd-font"
       taps:
         - "alienator88/cask"
         - "blacktop/tap"
@@ -73,6 +71,7 @@ packages:
         - "teamookla/speedtest"
         - "vanyauhalin/osub"
       casks:
+        - "font-caskaydia-cove-nerd-font"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
