@@ -18,7 +18,7 @@ packages:
         - "bat"
         - "fastfetch"
       casks:
-        - "font-caskaydia-cove-nerd-font"
+        - "font-hack-nerd-font"
         - "bitwarden"
         - "visual-studio-code"
       taps:
@@ -71,7 +71,7 @@ packages:
         - "teamookla/speedtest"
         - "vanyauhalin/osub"
       casks:
-        - "font-caskaydia-cove-nerd-font"
+        - "font-hack-nerd-font"
   windows:
     winget:
       - "Microsoft.VisualStudioCode"
@@ -89,7 +89,7 @@ packages:
       - "dockercompletion"
       - "psreadline"
     chocolatey:
-      - "cascadia-code-nerd-font"
+      - "nerdfont-hack"
 
 git:
   signingPrincipal: "partkaarel@gmail.com"
