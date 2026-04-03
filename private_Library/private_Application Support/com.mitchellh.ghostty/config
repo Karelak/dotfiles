@@ -11,5 +11,5 @@ bold-is-bright = true
 cursor-style = bar
 cursor-style-blink = false
 font-thicken = true
-font-family = CaskaydiaCove Nerd Font
+font-family = Hack Nerd Font Mono
 macos-titlebar-style = native
