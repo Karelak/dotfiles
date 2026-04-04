@@ -20,6 +20,11 @@
     "windows-terminal"
   ],
   "allowed_urls": [
-    "https://hst.sh"
+    "https://hst.sh",
+    "https://gist.githubusercontent.com",
+    "https://github.com",
+    "https://raw.githubusercontent.com",
+    "https://support.brave.com",
+    "https://brave.com"
   ]
 }
