@@ -86,7 +86,6 @@ packages:
       - "less"
       - "dockercompletion"
       - "psreadline"
-      - "zoxide"
     chocolatey:
 
 git:
