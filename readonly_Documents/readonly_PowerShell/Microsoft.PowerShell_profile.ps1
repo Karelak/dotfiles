@@ -5,6 +5,7 @@ Import-Module DockerCompletion
 # Shell completions
 Invoke-Expression (&chezmoi completion powershell | Out-String)
 Invoke-Expression (&surge completion powershell | Out-String)
+Invoke-Expression (&tailscale completion powershell | Out-String)
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
         [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
