@@ -27,7 +27,9 @@ Set-Alias 'sudo' 'gsudo'
 Set-Alias 'c' 'clear'
 # Prompt
 Invoke-Expression (&oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-my-posh\zen.toml" | Out-String)
-Invoke-Expression (&tailscale completion powershell | Out-String)
+if (Get-Command tailscale -ErrorAction SilentlyContinue) {
+    tailscale completion powershell | Out-String | Invoke-Expression
+}
 
 # PSReadLine options
 Set-PSReadLineOption -PredictionSource History
