@@ -5,7 +5,6 @@ Import-Module DockerCompletion
 # Shell completions
 Invoke-Expression (&chezmoi completion powershell | Out-String)
 Invoke-Expression (&surge completion powershell | Out-String)
-Invoke-Expression (&tailscale completion powershell | Out-String)
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
         [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
@@ -28,6 +27,7 @@ Set-Alias 'sudo' 'gsudo'
 Set-Alias 'c' 'clear'
 # Prompt
 Invoke-Expression (&oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-my-posh\zen.toml" | Out-String)
+Invoke-Expression (&tailscale completion powershell | Out-String)
 
 # PSReadLine options
 Set-PSReadLineOption -PredictionSource History
