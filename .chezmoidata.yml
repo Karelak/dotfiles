@@ -18,7 +18,7 @@ packages:
         - "bat"
         - "fastfetch"
       casks:
-        - "bitwarden"
+        # - "bitwarden" messes with ssh agent sock if bitwaredn and i cba to search it in the homebrew paths mess
         - "visual-studio-code"
       taps:
         - "alienator88/cask"
