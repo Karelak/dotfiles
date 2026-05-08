@@ -1,4 +1,8 @@
 # macOS system paths
 eval "$(/usr/libexec/path_helper)"
 
+# Ensure Homebrew and user bin paths are preferred over system defaults.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$HOME/.local/bin:$PATH"
+
 
