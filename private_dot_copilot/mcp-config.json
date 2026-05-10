@@ -1,22 +1,30 @@
 {
   "mcpServers": {
     "deepwiki": {
-      "tools": ["*"],
       "type": "http",
       "url": "https://mcp.deepwiki.com/mcp",
       "headers": {},
-      "source": "user",
-      "sourcePath": "C:\\Users\\Kaarel\\.copilot\\mcp-config.json"
+      "tools": [
+        "*"
+      ]
     },
     "chrome-devtools": {
-      "tools": ["*"],
+      "tools": [
+        "*"
+      ],
       "type": "local",
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"],
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
       "source": "user",
       "sourcePath": "C:\\Users\\Kaarel\\.copilot\\mcp-config.json"
     },
     "portainer": {
+      "tools": [
+        "*"
+      ],
       "command": "C:\\Users\\Kaarel\\go\\bin\\portainer-mcp.exe",
       "args": [
         "-server",
@@ -24,7 +32,9 @@
         "-token",
         "ptr_M7awcuItboouft8iuW6D/gyvm3OkMv2nN30yGn8n44Y=",
         "-disable-version-check"
-      ]
+      ],
+      "source": "user",
+      "sourcePath": "C:\\Users\\Kaarel\\.copilot\\mcp-config.json"
     }
   }
 }
