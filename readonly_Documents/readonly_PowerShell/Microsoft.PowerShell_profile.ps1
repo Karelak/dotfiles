@@ -93,7 +93,6 @@ function Register-LazyCompleter {
 
 # Core shell behaviour
 Import-Module PSReadLine
-Import-Module gsudoModule
 Import-Module PSFzf
 
 # PSFzf configuration
@@ -126,7 +125,6 @@ Register-LazyCompleter winget -NativeCompleter {
 . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 
 # Aliases
-Set-Alias sudo gsudo -Scope Global -Force
 Set-Alias c clear -Scope Global -Force
 
 # Prompt
