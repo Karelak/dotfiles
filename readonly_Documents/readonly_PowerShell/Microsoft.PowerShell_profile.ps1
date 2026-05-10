@@ -1,32 +1,12 @@
-# # Repair PATH when the hosting process fails to include the user-level entries.
-# $userPath = [System.Environment]::GetEnvironmentVariable('Path', 'User')
-# if ($userPath) {
-#     $existingPaths = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
-#     foreach ($pathEntry in ($env:Path -split ';')) {
-#         if ($pathEntry) {
-#             [void]$existingPaths.Add($pathEntry.TrimEnd('\'))
-#         }
-#     }
-
-#     $missingPaths = foreach ($pathEntry in ($userPath -split ';')) {
-#         if ($pathEntry -and -not $existingPaths.Contains($pathEntry.TrimEnd('\'))) {
-#             $pathEntry
-#         }
-#     }
-
-#     if ($missingPaths) {
-#         $env:Path = ($env:Path.TrimEnd(';') + ';' + ($missingPaths -join ';'))
-#     }
-# }
-
 # Module imports
 Import-Module PSReadLine
 Import-Module DockerCompletion
+Install-Module PSCompletions
 
 # Shell completions
 Invoke-Expression (&chezmoi completion powershell | Out-String)
 Invoke-Expression (&surge completion powershell | Out-String)
-Invoke-Expression (& zoxide init powershell | Out-String)
+Invoke-Expression (&zoxide init powershell | Out-String)
 Invoke-Expression (&gh completion -s powershell | Out-String)
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
