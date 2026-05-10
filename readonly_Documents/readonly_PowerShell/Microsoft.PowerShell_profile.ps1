@@ -1,7 +1,7 @@
 # Module imports
 Import-Module PSReadLine
 Import-Module DockerCompletion
-Install-Module PSCompletions
+Import-Module PSCompletions 
 
 # Shell completions
 Invoke-Expression (&chezmoi completion powershell | Out-String)
