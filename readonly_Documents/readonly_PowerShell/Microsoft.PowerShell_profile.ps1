@@ -96,6 +96,7 @@ Import-Module PSReadLine
 Import-Module PSFzf
 
 # PSFzf configuration
+$env:_PSFZF_FZF_DEFAULT_OPTS = "--cycle"
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 Set-PsFzfOption -TabExpansion
 
