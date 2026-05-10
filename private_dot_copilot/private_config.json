@@ -1,6 +1,7 @@
+// User settings belong in settings.json.
+// This file is managed automatically.
 {
   "firstLaunchAt": "2026-03-26T16:52:56.389Z",
-  "banner": "never",
   "last_logged_in_user": {
     "host": "https://github.com",
     "login": "Karelak"
@@ -15,16 +16,7 @@
     "/Users/kaarel/Documents/Git Repos/pstream-trakt",
     "/Users/kaarel"
   ],
-  "color_mode": "default",
   "asked_setup_terminals": [
     "windows-terminal"
-  ],
-  "allowed_urls": [
-    "https://hst.sh",
-    "https://gist.githubusercontent.com",
-    "https://github.com",
-    "https://raw.githubusercontent.com",
-    "https://support.brave.com",
-    "https://brave.com"
   ]
 }
