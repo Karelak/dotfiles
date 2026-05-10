@@ -110,7 +110,7 @@ Register-LazyCompleter -CommandName uvx -Generator { uvx --generate-shell-comple
 Register-LazyCompleter -CommandName gh -Generator { gh completion -s powershell | Out-String }
 Register-LazyCompleter -CommandName rustup -Generator { rustup completions powershell | Out-String }
 Register-LazyCompleter -CommandName surge -Generator { surge completion powershell | Out-String }
-
+Register-LazyCompleter -CommandName rclone -Generator { rclone completion powershell | Out-String }
 # winget is a special case because it doesn't have a PS completion script, but it can output completions directly also is really fucking slow but what can you do
 Register-LazyCompleter winget -NativeCompleter {
   param($wordToComplete, $commandAst, $cursorPosition)
