@@ -140,4 +140,6 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord 'Ctrl+RightArrow' -Function ForwardWord
+Set-PSReadLineOption -BellStyle None
+
 
