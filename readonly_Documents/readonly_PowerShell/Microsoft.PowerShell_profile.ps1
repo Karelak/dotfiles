@@ -93,12 +93,12 @@ function Register-LazyCompleter {
 
 # Core shell behaviour
 Import-Module PSReadLine
-Import-Module PSFzf
+# Import-Module PSFzf
 
 # PSFzf configuration
-$env:FZF_DEFAULT_OPTS = "--cycle"
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-Set-PsFzfOption -TabExpansion
+# $env:FZF_DEFAULT_OPTS = "--cycle"
+# Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+# Set-PsFzfOption -TabExpansion
 
 # Completions
 Register-LazyCompleter -CommandName scoop -ModuleName scoop-completion
@@ -136,7 +136,7 @@ Invoke-Expression (& oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-m
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineOption -Colors @{ InlinePrediction = '#865d5d' }
-Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord 'Ctrl+RightArrow' -Function ForwardWord
