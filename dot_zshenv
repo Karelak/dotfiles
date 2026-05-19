@@ -5,6 +5,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# cargo path
+eport PATH="$HOME/.cargo/bin:$PATH"
 # Editor
 export EDITOR="code"
 
