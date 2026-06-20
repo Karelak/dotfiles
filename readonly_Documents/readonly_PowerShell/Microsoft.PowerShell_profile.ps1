@@ -18,7 +18,7 @@ function Get-CompleterVersion ([string]$CommandName) {
 function Register-LazyCompleter {
   param(
     [string]$CommandName,
-
+  
     # Type 1 — binary generates PS completion script
     [scriptblock]$Generator,
 
