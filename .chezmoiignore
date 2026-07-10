@@ -1,12 +1,12 @@
 {{ if ne .chezmoi.os "darwin" }}
-/Library/**
+/Library/
 .zshenv
 .zprofile
 .zshrc
 {{ end }}
 {{ if ne .chezmoi.os "windows" }}
-/AppData/**
-/Documents/**
+/AppData/
+/Documents/
 .ssh/github.pub
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
