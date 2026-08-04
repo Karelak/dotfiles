@@ -34,7 +34,6 @@ setopt hist_find_no_dups
 # Aliases
 alias ls="eza --icons=always --hyperlink"
 alias c="clear"
-alias ai="opencode"
 
 # shell integrations
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
