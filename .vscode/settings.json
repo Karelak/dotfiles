@@ -1,8 +1,9 @@
 {
-  "yaml.disableSchemaDetection": [
-    "file:///Users/kaarel/.local/share/chezmoi/.chezmoi.yaml.tmpl"
-  ],
+  "yaml.disableSchemaDetection": [],
   "yaml.schemas": {
-    "https://www.schemastore.org/chezmoi.json": "file:///c%3A/Users/Kaarel/.local/share/chezmoi/.chezmoi.yaml.tmpl"
+    "https://www.schemastore.org/chezmoi.json": [
+      "file:///Users/kaarel/.local/share/chezmoi/.chezmoidata.yml",
+      "file:///Users/kaarel/.local/share/chezmoi/.chezmoi.yaml.tmpl"
+    ]
   }
 }
