@@ -19,10 +19,10 @@ Set-Alias c clear -Scope Global -Force
 
 # Prompt
 # Invoke-Expression (& oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-my-posh\zen.toml" | Out-String)
-function Invoke-Starship-TransientFunction {
-  &starship module character
-}
+# function Invoke-Starship-TransientFunction {
+#   &starship module character
+# }
 
-Invoke-Expression (&starship init powershell)
+# Invoke-Expression (&starship init powershell)
 
-Enable-TransientPrompt
+# Enable-TransientPrompt

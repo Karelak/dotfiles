@@ -1,5 +1,8 @@
 {
   "yaml.disableSchemaDetection": [
     "file:///Users/kaarel/.local/share/chezmoi/.chezmoi.yaml.tmpl"
-  ]
+  ],
+  "yaml.schemas": {
+    "https://www.schemastore.org/chezmoi.json": "file:///c%3A/Users/Kaarel/.local/share/chezmoi/.chezmoi.yaml.tmpl"
+  }
 }
