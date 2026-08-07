@@ -1,14 +1,5 @@
 Import-Module PSReadLine
 
-# fast scoop search
-. ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
-
-# Aliases
-Set-Alias c clear -Scope Global -Force
-
-# Prompt
-Invoke-Expression (& oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-my-posh\zen.toml" | Out-String)
-
 # PSReadLine preferences
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
@@ -19,4 +10,13 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord 'Ctrl+RightArrow' -Function ForwardWord
 Set-PSReadLineOption -BellStyle None
 
+
+# fast scoop search
+. ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
+
+# Aliases
+Set-Alias c clear -Scope Global -Force
+
+# Prompt
+Invoke-Expression (& oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-my-posh\zen.toml" | Out-String)
 
