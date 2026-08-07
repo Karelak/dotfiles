@@ -91,10 +91,11 @@ if command -v rbw >/dev/null 2>&1; then
   eval "$(rbw gen-completions bash)"
 fi
 
-# Oh My Posh
-if command -v oh-my-posh >/dev/null 2>&1; then
-  eval "$(oh-my-posh init bash --config "$HOME/.config/oh-my-posh/zen.toml")"
-fi
+
+# # Oh My Posh
+# if command -v oh-my-posh >/dev/null 2>&1; then
+#   eval "$(oh-my-posh init bash --config "$HOME/.config/oh-my-posh/zen.toml")"
+# fi
 if command -v tailscale >/dev/null 2>&1; then
   source <(tailscale completion bash)
 fi
