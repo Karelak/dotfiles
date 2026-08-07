@@ -19,4 +19,4 @@ Set-Alias c clear -Scope Global -Force
 
 # Prompt
 # Invoke-Expression (& oh-my-posh init pwsh --config "C:\Users\Kaarel\.config\oh-my-posh\zen.toml" | Out-String)
-
+Invoke-Expression (&starship init powershell)
