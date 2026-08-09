@@ -1,22 +1,3 @@
-# Completions
-if type brew &>/dev/null; then
-	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
-fpath=($HOME/.docker/completions $fpath)
-autoload -Uz compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-
-# Plugins
-source <(fzf --zsh)
-source "$HOMEBREW_PREFIX/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
-source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# # Oh My Posh
-# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-#   eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.toml)"
-# fi
-
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -39,15 +20,8 @@ alias c="clear"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 
-# Tool completions
-complete -o nospace -C /opt/homebrew/bin/mc mc
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
-eval "$(rbw gen-completions zsh)"
-eval "$(chezmoi completion zsh)"
-
 # pnpm
-export PNPM_HOME="/Users/kaarel/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME/bin:"*) ;;
 *) export PATH="$PNPM_HOME/bin:$PATH" ;;
