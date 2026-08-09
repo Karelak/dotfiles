@@ -1,8 +1,6 @@
 .vscode/
 {{ if ne .chezmoi.os "darwin" }}
 Library/
-.zshenv
-.zprofile
 .zshrc
 {{ end }}
 
