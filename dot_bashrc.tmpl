@@ -62,30 +62,8 @@ fi
 if command -v thefuck >/dev/null 2>&1; then
   eval "$(thefuck --alias)"
 fi
-if command -v uv >/dev/null 2>&1; then
-  eval "$(uv generate-shell-completion bash)"
-  eval "$(uvx --generate-shell-completion bash)"
-fi
-if command -v chezmoi >/dev/null 2>&1; then
-  eval "$(chezmoi completion bash)"
-fi
-if command -v fzf >/dev/null 2>&1; then
-  eval "$(fzf --bash)"
-fi
-# completions for rbw (Bitwarden CLI alternative)
-if command -v rbw >/dev/null 2>&1; then
-  eval "$(rbw gen-completions bash)"
-fi
 
 
-# # Oh My Posh
-# if command -v oh-my-posh >/dev/null 2>&1; then
-#   eval "$(oh-my-posh init bash --config "$HOME/.config/oh-my-posh/zen.toml")"
-# fi
-if command -v tailscale >/dev/null 2>&1; then
-  source <(tailscale completion bash)
-fi
-{{ end -}}
 
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
@@ -94,3 +72,5 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
 if [[ $- == *i* ]] && command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init --cmd cd bash)"
 fi
+
+{{ end -}}
