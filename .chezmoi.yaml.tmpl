@@ -21,9 +21,6 @@ github:
   refreshPeriod: 24h
 bitwarden:
   unlock: true
-{{- if eq .chezmoi.hostname "homelab" }}
 pinentry:
-  command: "pinentry-curses"
-  args: ["--no-global-grab"]  
-  options: ["allow-external-password-cache"]  
-{{- end }}
+  command: pinentry
+  
