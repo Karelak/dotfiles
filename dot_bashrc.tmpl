@@ -1,8 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 # Window size check after each command
 shopt -s checkwinsize
@@ -12,21 +12,20 @@ shopt -s checkwinsize
 
 # Bash completion
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
 # Linuxbrew environment
 if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
-  eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+	eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 fi
 export HOMEBREW_NO_ENV_HINTS=1
-
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
@@ -34,10 +33,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # Editor
 export EDITOR="code"
 
-
 # Headless Linux: prefer nano when no display server present
 if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
-  export EDITOR="nano"
+	export EDITOR="nano"
 fi
 
 # History
@@ -51,26 +49,23 @@ HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
 if command -v eza >/dev/null 2>&1; then
-  alias ls='eza --icons=always --hyperlink'
+	alias ls='eza --icons=always --hyperlink'
 fi
 alias c='clear'
 
 # Integrations
 if [[ "$TERM_PROGRAM" == "vscode" ]] && command -v code >/dev/null 2>&1; then
-  . "$(code --locate-shell-integration-path bash)"
+	. "$(code --locate-shell-integration-path bash)"
 fi
 if command -v thefuck >/dev/null 2>&1; then
-  eval "$(thefuck --alias)"
+	eval "$(thefuck --alias)"
 fi
-
-
-
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
 
 # zoxide recommends initialization at the end of shell config
 if [[ $- == *i* ]] && command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init --cmd cd bash)"
+	eval "$(zoxide init --cmd cd bash)"
 fi
 
 {{ end -}}

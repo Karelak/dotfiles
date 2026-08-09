@@ -1,6 +1,6 @@
 # Completions
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
 fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit && compinit
@@ -17,8 +17,7 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #   eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.toml)"
 # fi
 
-
-# History 
+# History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -50,7 +49,7 @@ eval "$(chezmoi completion zsh)"
 # pnpm
 export PNPM_HOME="/Users/kaarel/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+*":$PNPM_HOME/bin:"*) ;;
+*) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
