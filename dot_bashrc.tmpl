@@ -69,22 +69,8 @@ fi
 if command -v chezmoi >/dev/null 2>&1; then
   eval "$(chezmoi completion bash)"
 fi
-# ble.sh — syntax highlighting and autosuggestions (must be sourced first)
-if [[ -f ~/.local/share/blesh/ble.sh ]]; then
-  source ~/.local/share/blesh/ble.sh --noattach
-
-  # fzf integration via ble.sh (replaces plain fzf --bash)
-  if command -v fzf >/dev/null 2>&1; then
-    _ble_fzf_path="$(command -v fzf)"
-    _ble_contrib_fzf_base="${_ble_fzf_path%/*/*}"
-    ble-import -d contrib/integration/fzf-completion
-    ble-import -d contrib/integration/fzf-key-bindings
-  fi
-else
-  # Fallback if ble.sh not yet installed
-  if command -v fzf >/dev/null 2>&1; then
-    eval "$(fzf --bash)"
-  fi
+if command -v fzf >/dev/null 2>&1; then
+  eval "$(fzf --bash)"
 fi
 # completions for rbw (Bitwarden CLI alternative)
 if command -v rbw >/dev/null 2>&1; then
@@ -99,8 +85,6 @@ fi
 if command -v tailscale >/dev/null 2>&1; then
   source <(tailscale completion bash)
 fi
-# Attach ble.sh after prompt is set up
-[[ ${BLE_VERSION-} ]] && ble-attach
 {{ end -}}
 
 
