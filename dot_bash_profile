@@ -1,7 +1,7 @@
 # Environment
 
 export EDITOR="code --wait"
-
+HOMEBREW_NO_ENV_HINTS=1
 # PATH
 
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -14,15 +14,15 @@ export PATH="$PNPM_HOME:$PATH"
 # Homebrew
 
 if [ -x "$HOME/.linuxbrew/bin/brew" ]; then
-    eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+	eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 elif [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-    eval "$("/home/linuxbrew/.linuxbrew/bin/brew" shellenv)"
+	eval "$("/home/linuxbrew/.linuxbrew/bin/brew" shellenv)"
 fi
 
 # Interactive shell
 
 if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
+	. "$HOME/.bashrc"
 fi
 
 # RBW ssh-agent
