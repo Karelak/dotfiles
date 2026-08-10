@@ -26,11 +26,6 @@ if [ -r /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
 
-# fzf
-if command -v fzf >/dev/null 2>&1; then
-	eval "$(fzf)"
-fi
-
 # Prompt
 PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
 
