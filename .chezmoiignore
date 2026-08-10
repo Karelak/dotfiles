@@ -3,7 +3,9 @@
 Library/
 .zshrc
 {{ end }}
-
+{{ if ne .chezmoi.os "windows" }}
+Documents/
+{{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
 {{ end }}
