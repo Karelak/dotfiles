@@ -15,7 +15,6 @@ shopt -s progcomp
 shopt -s cdspell
 
 # Enhanced menu-style completion
-bind 'set menu-completion-query-items 0'
 bind 'set completion-display-width 120'
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
