@@ -21,6 +21,7 @@ bind 'set show-all-if-ambiguous on'
 bind 'set show-all-if-unmodified on'
 bind '"\t": menu-complete'
 bind '"\e[Z": menu-complete-backward'
+bind 'set menu-complete-display-prefix on'
 
 # Completion
 if [ -r /usr/share/bash-completion/bash_completion ]; then
