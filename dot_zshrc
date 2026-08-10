@@ -4,7 +4,7 @@ source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-completions
 
 # Completion system
 autoload -Uz compinit
