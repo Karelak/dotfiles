@@ -1,13 +1,22 @@
-source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
+# Zinit
+source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 
+# Plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+
+# Completion system
 autoload -Uz compinit
 compinit
 
 # History
+
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -17,13 +26,12 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Aliases
+
 alias ls="eza --icons=always --hyperlink"
 alias c="clear"
 
-# shell integrations
+# Shell integrations
+
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
-
-# Syntax Highlight
-source "$HOMEBREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
