@@ -8,6 +8,7 @@ zinit wait lucid light-mode for \
 	atload'_zsh_autosuggest_start' \
 	zsh-users/zsh-autosuggestions \
 	zdharma-continuum/fast-syntax-highlighting \
+	wait'0a' \
 	Aloxaf/fzf-tab
 
 # History
