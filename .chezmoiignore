@@ -8,4 +8,5 @@ Documents/
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
+.bash_profile
 {{ end }}
