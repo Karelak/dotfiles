@@ -4,11 +4,11 @@ source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 # Plugins
 zinit wait lucid light-mode for \
 	atinit'zicompinit; zicdreplay' \
-	zdharma-continuum/fast-syntax-highlighting \
+	zsh-users/zsh-completions \
 	atload'_zsh_autosuggest_start' \
 	zsh-users/zsh-autosuggestions \
-	blockf atpull'zinit creinstall -q .' \
-	zsh-users/zsh-completions
+	zdharma-continuum/fast-syntax-highlighting \
+	Aloxaf/fzf-tab
 
 # History
 HISTSIZE=5000
