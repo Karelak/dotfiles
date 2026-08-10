@@ -23,3 +23,5 @@ alias c="clear"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(thefuck --alias)"
 
+# Syntax Highlight
+source "$HOMEBREW_PREFIX/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
