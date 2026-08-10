@@ -15,22 +15,17 @@ shopt -s progcomp
 shopt -s cdspell
 
 # Enhanced menu-style completion
-# bind 'set menu-completion-query-items 0'
-# bind 'set completion-display-width 120'
-# bind 'set completion-ignore-case on'
-# bind 'set show-all-if-ambiguous on'
-# bind 'set show-all-if-unmodified on'
-# bind '"\t": menu-complete'
-# bind '"\e[Z": menu-complete-backward'
+bind 'set menu-completion-query-items 0'
+bind 'set completion-display-width 120'
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+bind 'set show-all-if-unmodified on'
+bind '"\t": menu-complete'
+bind '"\e[Z": menu-complete-backward'
 
 # Completion
 if [ -r /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
-fi
-
-# fzf integration
-if command -v fzf &>/dev/null; then
-	eval "$(fzf --bash)"
 fi
 
 # Prompt
