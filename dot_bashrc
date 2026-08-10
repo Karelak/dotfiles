@@ -14,14 +14,15 @@ shopt -s checkwinsize
 shopt -s progcomp
 shopt -s cdspell
 
-# Enhanced menu-style completion
-bind 'set completion-display-width 120'
-bind 'set completion-ignore-case on'
+# Menu completion visual settings
+bind 'set menu-completion-query-items 0'
+bind 'set menu-complete-display-prefix on'
+bind 'set colored-completion-prefix on'
+bind 'set colored-stats on'
 bind 'set show-all-if-ambiguous on'
 bind 'set show-all-if-unmodified on'
 bind '"\t": menu-complete'
 bind '"\e[Z": menu-complete-backward'
-bind 'set menu-complete-display-prefix on'
 
 # Completion
 if [ -r /usr/share/bash-completion/bash_completion ]; then
