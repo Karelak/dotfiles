@@ -1,57 +1,15 @@
-# If not running interactively, don't do anything
-case $- in
-*i*) ;;
-*) return ;;
-esac
-# Window size check after each command
+# History
+
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT='%F %T '
+
+shopt -s histappend
 shopt -s checkwinsize
 
-# lesspipe for non-text files
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
 # Bash completion
-if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		. /usr/share/bash-completion/bash_completion
-	elif [ -f /etc/bash_completion ]; then
-		. /etc/bash_completion
-	fi
+
+if [[ -r /usr/share/bash-completion/bash_completion ]]; then
+	. /usr/share/bash-completion/bash_completion
 fi
-
-# Linuxbrew environment
-if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
-	eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
-fi
-export HOMEBREW_NO_ENV_HINTS=1
-
-# PATH
-export PATH="$HOME/.local/bin:$PATH"
-
-# Editor
-export EDITOR="code"
-
-# Headless Linux: prefer nano when no display server present
-if [[ -z "${DISPLAY:-}" && -z "${WAYLAND_DISPLAY:-}" ]]; then
-	export EDITOR="nano"
-fi
-
-# History
-HISTSIZE=5000
-HISTFILE=~/.bash_history
-HISTCONTROL=ignoredups:erasedups
-shopt -s histappend
-
-# Homebrew
-HOMEBREW_NO_ENV_HINTS=1
-
-alias ls='eza --icons=always --hyperlink'
-
-alias c='clear'
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
-eval "$(thefuck --alias)"
-
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
-
-eval "$(zoxide init --cmd cd bash)"
