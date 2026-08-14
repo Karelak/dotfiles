@@ -16,6 +16,10 @@ Set-PsFzfOption -TabExpansion
 # fast scoop search
 . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 
+# Editor
+$env:MICRO_TRUECOLOR = "1"
+
+
 # Aliases
 Set-Alias c clear -Scope Global -Force
 

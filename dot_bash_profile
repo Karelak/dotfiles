@@ -1,5 +1,5 @@
 # Environment
-
+export MICRO_TRUECOLOR=1
 export EDITOR="code --wait"
 HOMEBREW_NO_ENV_HINTS=1
 # PATH
