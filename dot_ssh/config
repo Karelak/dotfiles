@@ -1,0 +1,4 @@
+Host homelab
+  HostName 192.168.1.10
+Host vps
+  HostName 132.145.20.53
