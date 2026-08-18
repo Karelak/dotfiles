@@ -1,7 +1,7 @@
 .vscode/
 {{ if ne .chezmoi.os "darwin" }}
 Library/
-.zshrc
+
 {{ end }}
 {{ if ne .chezmoi.os "windows" }}
 Documents/

@@ -1,7 +1,0 @@
-# macOS system paths
-
-eval "$(/usr/libexec/path_helper)"
-
-# Homebrew
-
-eval "$(/opt/homebrew/bin/brew shellenv)"

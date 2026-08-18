@@ -1,5 +1,10 @@
-# Zinit
+{{- if eq .chezmoi.os "darwin" }}
+# Zinit (Homebrew-managed installation)
 source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
+{{- else if eq .chezmoi.os "linux" }}
+# Zinit (Linux installation)
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+{{- end }}
 
 # Plugins
 zinit wait lucid light-mode for \
@@ -25,13 +30,12 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Aliases
-
-alias ls="eza --icons=always --hyperlink"
-alias c="clear"
-
 # Shell integrations
-
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(thefuck --alias)"
+eval "$(fixit init zsh)"
+
+# Aliases
+alias ls="eza --icons=always --hyperlink"
+alias c="clear"
+alias fuck="fix"

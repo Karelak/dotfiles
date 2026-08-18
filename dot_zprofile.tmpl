@@ -1,0 +1,12 @@
+{{- if eq .chezmoi.os "darwin" }}
+# macOS system paths
+eval "$(/usr/libexec/path_helper)"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- else if eq .chezmoi.os "linux" }}
+# Linux-specific profile setup
+if [ -f /etc/profile.d/hmactivate.sh ]; then
+  . /etc/profile.d/hmactivate.sh
+fi
+{{- end }}
