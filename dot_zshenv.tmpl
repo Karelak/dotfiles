@@ -11,6 +11,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 {{- if eq .chezmoi.os "darwin" }}
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 {{- else if eq .chezmoi.os "linux" }}
+# flatpak version
 export SSH_AUTH_SOCK="$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"
 {{- end}}
 
