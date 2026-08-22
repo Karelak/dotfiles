@@ -23,3 +23,4 @@ $env:MICRO_TRUECOLOR = "1"
 # Aliases
 Set-Alias c clear -Scope Global -Force
 
+Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
