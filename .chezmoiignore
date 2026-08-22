@@ -4,6 +4,7 @@ Library/
 {{ end }}
 {{ if ne .chezmoi.os "windows" }}
 Documents/
+Appdata/
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
