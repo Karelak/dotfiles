@@ -1,10 +1,10 @@
 
 {{ if ne .chezmoi.os "darwin" }}
-Library/*
+Library/
 {{ end }}
 {{ if ne .chezmoi.os "windows" }}
-Documents/*
-Appdata/*
+Documents/
+Appdata/
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
