@@ -12,6 +12,3 @@ export PATH="$PNPM_HOME:$PATH"
 if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
 fi
-
-# RBW ssh-agent
-export SSH_AUTH_SOCK="/tmp/rbw-$UID/ssh-agent-socket"
