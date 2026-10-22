@@ -36,4 +36,3 @@ alias ls="eza --icons=always --hyperlink"
 alias c="clear"
 
 eval "$(zoxide init bash)"
-eval "$(thefuck --alias)"
