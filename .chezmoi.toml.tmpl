@@ -1,4 +1,4 @@
-{{- $hosts := dict "work-laptop" "work" "desktop" "personal" "kaarels-macbook-air" "personal" -}}
+{{- $hosts := dict "work-laptop" "desktop" "kaarels-macbook-air" -}}
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq .chezmoi.os "darwin" -}}
 {{-   $hostname = output "scutil" "--get" "LocalHostName" | trim -}}
