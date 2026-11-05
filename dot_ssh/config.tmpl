@@ -1,16 +1,1 @@
-{{if eq .profile "work" -}}
-Host groot
-    HostName 192.168.1.7
-    User devops
-    
-Host nebula
-    HostName 192.168.1.5
-    User appledeveloper
-{{else if eq .profile "personal" -}}
-Host vps
-    HostName 132.145.20.53
-    User kaarel
-Host homelab
-    HostName 192.168.1.10
-    User kaarel
-{{ end -}}
+{{- includeTemplate ".ssh/config.tmpl" . -}}

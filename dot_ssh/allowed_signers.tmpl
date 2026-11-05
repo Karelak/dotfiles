@@ -1,2 +1,1 @@
-{{ $p := index .profiles .profile -}}  
-{{ $p.email }} {{ (index (gitHubKeys $.githubUser) $p.sshKeyIndex).Key }}
+{{- includeTemplate ".ssh/allowed_signers.tmpl" . -}}
