@@ -9,7 +9,13 @@
     profile = {{ $profile | quote }}
 
 
-{{- if lookPath "code" }}  
+{{- /* real VS Code prints a bare "1.x.y"; the standalone CLI prints "code 1.x.y (commit ...)" */}}
+{{- $vscode := false }}
+{{- if lookPath "code" }}
+{{-   $vscode = regexMatch "^[0-9]+\\.[0-9]+\\.[0-9]+" (output "code" "--version") }}
+{{- end }}
+
+{{- if $vscode }}
 [edit]  
     command = "code"  
     args = ["--wait"]  
