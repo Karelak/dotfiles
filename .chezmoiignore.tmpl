@@ -1,38 +1,22 @@
-.vscode/
-.vscode/**
+.vscode
 
 {{ if ne .chezmoi.os "darwin" -}}
-Library/
-Library/**
+Library
+.zshrc
+.zprofile
 {{ end -}}
 
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if ne .chezmoi.os "linux" -}}
 .bashrc
 .bash_profile
 {{ end -}}
 
 {{ if ne .chezmoi.os "windows" -}}
-Documents/
-Documents/**
-AppData/
-AppData/**
-{{ end -}}
-
-{{ if eq .chezmoi.os "windows" -}}  
-.config/*  
-.config/*/**  
-!.config/tealdeer  
-!.config/tealdeer/**  
-.zshrc  
-.zprofile  
-.bashrc  
-.bash_profile  
-{{ end -}}
-
-
-{{ if eq .chezmoi.os "linux" -}}
-.zshrc
-.zprofile
+Documents
+AppData
+{{ else -}}
+.config/*
+!.config/tealdeer
 {{ end -}}
 
 {{ if eq .profile "remote" -}}
@@ -40,8 +24,6 @@ AppData/**
 .ssh/config
 .ssh/allowed_signers
 .ssh/id_ed25519.pub
-{{ end -}}
-
-{{ if ne .profile "remote" -}}
+{{ else -}}
 .ssh/authorized_keys
 {{ end -}}
