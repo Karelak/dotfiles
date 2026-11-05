@@ -1,8 +1,10 @@
 [gpg]
 	format = ssh
+
 [user]
 	name = Kaarel Part
 	email = {{ .git.signingPrincipal }}
+	
 {{ if eq .chezmoi.os "windows" }}
 	signingkey = ~/.ssh/github.pub
 {{ else }}
