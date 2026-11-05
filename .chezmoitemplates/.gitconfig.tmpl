@@ -1,0 +1,25 @@
+{{ $p := index .profiles .profile -}}  
+[gpg]  
+    format = ssh  
+[user]  
+    name = Kaarel Part  
+    email = {{ $p.email }}  
+    signingkey = {{ (index (gitHubKeys $.githubUser) $p.sshKeyIndex).Key }}  
+[commit]  
+    gpgsign = true  
+[gpg "ssh"]  
+    allowedSignersFile = ~/.ssh/allowed_signers  
+{{- if eq .chezmoi.os "windows" }}  
+    program = C:/Windows/System32/OpenSSH/ssh-keygen.exe  
+[core]  
+    sshCommand = C:/Windows/System32/OpenSSH/ssh.exe  
+{{- end }}  
+
+{{- if lookPath "gh" }}
+[credential "https://github.com"]  
+    helper =  
+    helper = !gh auth git-credential  
+[credential "https://gist.github.com"]  
+    helper =  
+    helper = !gh auth git-credential
+{{- end}}

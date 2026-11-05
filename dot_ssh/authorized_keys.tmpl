@@ -1,0 +1,3 @@
+{{ range $name, $p := .profiles -}}  
+{{ (index (gitHubKeys $.githubUser) $p.sshKeyIndex).Key }} {{ $p.email }}  
+{{ end -}}

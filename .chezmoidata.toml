@@ -1,0 +1,8 @@
+githubUser = "Karelak"  
+
+[profiles.work]  
+    email = "kaarel.part@detegoglobal.com"
+    sshKeyIndex = 0
+[profiles.personal]  
+    email = "partkaarel@gmail.com"  
+    sshKeyIndex = 1
