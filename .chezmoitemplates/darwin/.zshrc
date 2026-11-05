@@ -29,7 +29,6 @@ setopt hist_find_no_dups
 # Shell integrations
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fixit init zsh)"
 
 # Aliases
 alias ls="eza --icons=always --hyperlink"

@@ -21,8 +21,12 @@
     ]  
 {{- end }}  
   
-[git]  
-    autoCommit = true  
+[interpreters.ps1]
+    command = "pwsh"
+    args = ["-NoLogo", "-NoProfile"]
+
+[git]
+    autoCommit = true
     autoPush = true  
 [gitHub]  
     refreshPeriod = "24h"
