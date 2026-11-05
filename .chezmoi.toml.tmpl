@@ -1,3 +1,11 @@
+{{- $profile := "personal" -}}  
+{{- if eq .chezmoi.hostname "work-laptop" -}}  
+{{-   $profile = "work" -}}  
+{{- end -}}  
+  
+[data]  
+    profile = {{ $profile | quote }}
+
 {{- if lookPath "code" }}  
 [edit]  
     command = "code"  
