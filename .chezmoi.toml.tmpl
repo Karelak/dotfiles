@@ -1,10 +1,12 @@
-{{- $profile := "personal" -}}  
-{{- if eq .chezmoi.hostname "work-laptop" -}}  
-{{-   $profile = "work" -}}  
-{{- end -}}  
-  
-[data]  
+{{- $hosts := dict "work-laptop" "work" "home-pc" "personal" "macbook" "personal" -}}
+{{- $profile := get $hosts (lower .chezmoi.hostname) -}}
+{{- if not $profile -}}
+{{-   $profile = promptChoiceOnce . "profile" "Profile" (list "work" "personal" "remote") "remote" -}}
+{{- end -}}
+
+[data]
     profile = {{ $profile | quote }}
+
 
 {{- if lookPath "code" }}  
 [edit]  

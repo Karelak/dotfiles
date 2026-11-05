@@ -28,3 +28,7 @@ AppData/**
 .bashrc
 .bash_profile
 {{ end -}}
+
+{{ if ne .profile "remote" -}}
+.ssh/authorized_keys
+{{ end -}}
