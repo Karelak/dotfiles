@@ -13,13 +13,15 @@ AppData/
 AppData/**
 {{ end -}}
 
-{{ if eq .chezmoi.os "windows" -}}
-.config/
-.config/**
-.zshrc
-.zprofile
-.bashrc
-.bash_profile
+{{ if eq .chezmoi.os "windows" -}}  
+.config/*  
+.config/*/**  
+!.config/tealdeer  
+!.config/tealdeer/**  
+.zshrc  
+.zprofile  
+.bashrc  
+.bash_profile  
 {{ end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}
