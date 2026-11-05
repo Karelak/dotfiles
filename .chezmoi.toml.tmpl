@@ -1,4 +1,4 @@
-{{- $hosts := dict "work-laptop" "desktop" "kaarels-macbook-air" -}}
+{{- $hosts := dict "work-laptop" "work" "desktop" "personal" "kaarels-macbook-air" "personal" -}}
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq .chezmoi.os "darwin" -}}
 {{-   $hostname = output "scutil" "--get" "LocalHostName" | trim -}}
@@ -8,7 +8,7 @@
 [data]
     profile = {{ $profile | quote }}
 
-
+ 
 {{- /* real VS Code prints a bare "1.x.y"; the standalone CLI prints "code 1.x.y (commit ...)" */}}
 {{- $vscode := false }}
 {{- if lookPath "code" }}
