@@ -1,0 +1,25 @@
+.vscode/
+.vscode/**
+
+{{ if ne .chezmoi.os "darwin" -}}
+Library/
+Library/**
+.zshrc
+.zprofile
+{{ end -}}
+
+{{ if ne .chezmoi.os "windows" -}}
+Documents/
+Documents/**
+AppData/
+AppData/**
+{{ end -}}
+
+{{ if eq .chezmoi.os "windows" -}}
+.config/btop/**
+{{ end -}}
+
+{{ if ne .chezmoi.os "linux" -}}
+.bashrc
+.bash_profile
+{{ end -}}
