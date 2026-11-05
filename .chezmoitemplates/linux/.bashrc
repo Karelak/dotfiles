@@ -32,7 +32,7 @@ fi
 PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
 
 # Aliases
-alias ls="eza --icons=always --hyperlink"
+command -v eza >/dev/null && alias ls="eza --icons=always --hyperlink"
 alias c="clear"
 
-eval "$(zoxide init bash)"
+command -v zoxide >/dev/null && eval "$(zoxide init bash)"

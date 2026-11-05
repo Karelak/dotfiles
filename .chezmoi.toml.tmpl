@@ -1,8 +1,9 @@
-{{- $hosts := dict "work-laptop" "work" "home-pc" "personal" "macbook" "personal" -}}
-{{- $profile := get $hosts (lower .chezmoi.hostname) -}}
-{{- if not $profile -}}
-{{-   $profile = promptChoiceOnce . "profile" "Profile" (list "work" "personal" "remote") "remote" -}}
+{{- $hosts := dict "work-laptop" "work" "desktop" "personal" "kaarels-macbook-air" "personal" -}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname = output "scutil" "--get" "LocalHostName" | trim -}}
 {{- end -}}
+{{- $profile := get $hosts (lower $hostname) | default "remote" -}}
 
 [data]
     profile = {{ $profile | quote }}

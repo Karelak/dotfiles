@@ -6,6 +6,11 @@ Library/
 Library/**
 {{ end -}}
 
+{{ if eq .chezmoi.os "darwin" -}}
+.bashrc
+.bash_profile
+{{ end -}}
+
 {{ if ne .chezmoi.os "windows" -}}
 Documents/
 Documents/**
@@ -24,9 +29,17 @@ AppData/**
 .bash_profile  
 {{ end -}}
 
-{{ if eq .chezmoi.os "darwin" -}}
-.bashrc
-.bash_profile
+
+{{ if eq .chezmoi.os "linux" -}}
+.zshrc
+.zprofile
+{{ end -}}
+
+{{ if eq .profile "remote" -}}
+.gitconfig
+.ssh/config
+.ssh/allowed_signers
+.ssh/id_ed25519.pub
 {{ end -}}
 
 {{ if ne .profile "remote" -}}

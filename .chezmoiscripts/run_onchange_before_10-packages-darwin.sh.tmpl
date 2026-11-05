@@ -1,6 +1,0 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
-set -eu
-eval "$(/opt/homebrew/bin/brew shellenv)"
-brew install eza zoxide fzf zinit
-{{ end -}}
