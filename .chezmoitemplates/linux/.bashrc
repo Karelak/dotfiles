@@ -26,7 +26,7 @@ if [ -r /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
 
-# fzf bash shell integration. 
+# fzf bash shell integration.
 eval "$(fzf --bash)"
 . ~/.local/share/fzf-tab-completion/bash/fzf-bash-completion.sh
 bind -x '"\t": fzf_bash_completion'
@@ -37,5 +37,6 @@ PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
 # Aliases
 alias ls="eza --icons=always --hyperlink"
 alias c="clear"
+alias bat="batcat"
 
 eval "$(zoxide init bash)"
